@@ -1,0 +1,36 @@
+.navbar{
+    /*navbar-expand-sm 
+    bg-dark;
+    navbar-dark #fab4f3
+    nav justify-content-center*/
+    background-color: #fab4f3;
+    height: 100px;
+}
+
+
+.navbar-brand{
+    position: relative;
+    font-size: xx-large;
+    font-style: oblique;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: red;
+    font-weight: bold;
+}
+
+.nav-item{
+    margin-top: 41px;
+}
+
+.nav-link{
+    font-size: 22px;
+    font-style: oblique;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: darkorange;
+    font-weight: bold;
+}
+
+li .nav-link:hover{
+    color: black;
+    background-color: white;
+}
+

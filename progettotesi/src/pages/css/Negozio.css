@@ -1,0 +1,42 @@
+.paginaProdotti{
+    background-color: #fab4f3;
+    justify-content: center;
+}
+
+.headerCaramella{
+    background-image: url(/public/sfondo.png);
+    height: 400px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    /*filter: blur(2px);*/
+}
+
+.headerCioccolata{
+    background-image: url(/public/sfondo2300h.png);
+    height: 450px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.headerEventi{
+    background-image: url(/public/sfondo3.png);
+    height: 350px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+h2{
+    font-style: italic;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: black;
+    font-weight: bold;
+}
+
+
+

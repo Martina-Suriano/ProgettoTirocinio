@@ -1,0 +1,47 @@
+.home{
+    background-color: #fab4f3;
+}
+
+.welcomepage{
+    background-image: url(/public/homepage66.jpg);
+    height: 300px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    filter: blur(2px);
+    
+}
+
+.presentazione{
+    background-color: #fab4f3;
+    text-align: center;
+}
+
+.presentazione h1{
+    font-style: oblique;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: darkmagenta;
+    font-weight: bold;
+}
+
+.presentazione h4,h3{
+    font-style: italic;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: red;
+    font-weight: bold;
+}
+
+.inspireslot{
+    background-color: #fab4f3;
+    text-align: center;
+}
+
+.homefooter{
+    background-color: #fab4f3;
+    font-style: italic;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+}

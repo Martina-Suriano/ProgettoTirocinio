@@ -29,8 +29,10 @@ class Home extends React.Component{
                                 <h4> Nel nostro shop online potrai trovare una vasta varietà di caramelle e cioccolata, </h4>
                                 <h4> potrai inoltre organizzare le tue feste con tutto il necessario, </h4>
                                 <h3> ci pensiamo noi! </h3>
-                                <button className='accedi' onClick={this.onClickLogin}> LOGIN </button>
-                                <p> {this.props.login} </p>
+                                <div className='accedi'>
+                                    <button className='btn btn-success' type='button' onClick={this.onClickLogin}> LOGIN </button>
+                                    <p> {this.props.login} </p>
+                                </div>
                             </div>
                         </div>
                     </div>

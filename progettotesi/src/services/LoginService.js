@@ -2,7 +2,6 @@ import { Utente } from "../model/Utente";
 
 export const loginUtente = ()=> {
 
-    
         fetch("http://localhost:3001/utenti")
             .then(response => response.json())
             .then(data => {
@@ -14,6 +13,4 @@ export const loginUtente = ()=> {
                 return nuovoUtente[0];
             });
     
-
-
 }

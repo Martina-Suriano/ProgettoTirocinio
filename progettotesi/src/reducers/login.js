@@ -3,7 +3,9 @@ import { loginUtente } from "../services/LoginService.js"
 const loginReducer = (state=false, action) =>{
     switch(action.type){
         case 'LOGIN':
-            console.log(loginUtente());
+            /*loginUtente().then((x)=> {return x;} );*/
+            
+            
             break
         case 'LOGOUT':
             return false;

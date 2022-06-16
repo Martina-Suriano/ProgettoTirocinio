@@ -2,13 +2,12 @@ import React from 'react'
 import './css/Home.css'
 import Inspire from './team/Inspire'
 import {connect} from 'react-redux'
+import { loginUtente } from '../services/LoginService'
 
 class Home extends React.Component{
 
-    onClickLogin = ()=> {
-        this.props.dispatch({
-            type: "LOGIN"
-        });
+    onClickLogin = async ()=>  {
+       await this.props.loginUtente();
     }
 
     render = () => {
@@ -31,7 +30,7 @@ class Home extends React.Component{
                                 <h3> ci pensiamo noi! </h3>
                                 <div className='accedi'>
                                     <button className='btn btn-success' type='button' onClick={this.onClickLogin}> LOGIN </button>
-                                    <p> {this.props.login} </p>
+                                    <p> {this.props.login.nome} </p>
                                 </div>
                             </div>
                         </div>
@@ -62,4 +61,6 @@ const mapStateToProps = (state) => {
     return {login: state.login};
 };
 
-export default connect(mapStateToProps)(Home);
+
+
+export default connect(mapStateToProps, {loginUtente})(Home);

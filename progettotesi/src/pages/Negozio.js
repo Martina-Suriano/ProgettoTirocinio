@@ -1,8 +1,7 @@
 import React from 'react'
 import './css/Negozio.css'
 import {Prodotto} from '../model/Prodotto'
-/*import {useSelector, useDispatch} from 'react-redux'
-import { increment } from '../action/indexAction'*/
+import {connect} from 'react-redux'
 
 class Negozio extends React.Component {
     constructor(props){
@@ -11,11 +10,6 @@ class Negozio extends React.Component {
             prodotti:[]
         }
     }
-
-    /*login= useSelector(state => state.login);
-    counter= useSelector(state => state.counter);
-    dispatch= useDispatch(); */
-
 
     componentDidMount() {
       this.caricaProdotti();
@@ -60,13 +54,9 @@ class Negozio extends React.Component {
     }
 
     onClickButton= (element) => {
-        this.setState({
-            ordine: element,
-            contCarrello: this.state.contCarrello + 1
-        })
-        var c= this.state.contCarrello;
+        
+        
         console.log(element);
-        console.log(c);
     }
 
     render = () => {
@@ -99,13 +89,13 @@ class Negozio extends React.Component {
                                     
                                     <div className='acquista'>
                                         <button type="button" className='btn btn-success' onClick={()=> this.onClickButton(this.state.prodottoCorrente)}>
-                                             Aggiungi al carrello
+                                             Aggiungi al carrello di {this.props.login.nome}
                                         </button>
                                     </div>
 
-                                    <div className='contCarrello'>
+                                    {/*<div className='contCarrello'>
                                         <h4> Prodotti nel carrello: </h4>
-                                    </div>
+                                    </div>*/}
                                 
                             </div>
                             )
@@ -117,4 +107,8 @@ class Negozio extends React.Component {
     }
 }
 
-export default Negozio;
+const mapStateToProps = (state) => {
+    return {login: state.login};
+};
+
+export default connect(mapStateToProps)(Negozio);

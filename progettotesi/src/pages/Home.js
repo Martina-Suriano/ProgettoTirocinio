@@ -30,7 +30,7 @@ class Home extends React.Component{
                                 <h3> ci pensiamo noi! </h3>
                                 <div className='accedi'>
                                     <button className='btn btn-success' type='button' onClick={this.onClickLogin}> LOGIN </button>
-                                    <p> {this.props.login.nome} </p>
+                                    <h5> {this.props.login.nome} </h5>
                                 </div>
                             </div>
                         </div>

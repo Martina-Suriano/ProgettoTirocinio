@@ -1,10 +1,10 @@
-import counterReducer from "./counter";
 import loginReducer from "./login";
 import { combineReducers } from "redux";
+import carrelloReducer from "./carrello";
 
 const rootReducer = combineReducers({
-    counter: counterReducer,
-    login: loginReducer
+    login: loginReducer,
+    carrello: carrelloReducer
 })
 
 export default rootReducer;

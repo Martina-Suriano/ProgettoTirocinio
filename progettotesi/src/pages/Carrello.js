@@ -1,35 +1,17 @@
 import React from 'react'
 import './css/Carrello.css'
-import {Utente} from '../model/Utente'
+import {connect} from 'react-redux'
 
 class Carrello extends React.Component {
     constructor(props){
         super(props)
         this.state={
-
             ordine:[],
             totale:0
         }
     }
 
-    componentDidMount(){
-        fetch('http://localhost:3001/utenti')
-            .then(response => response.json())
-            .then(data => {
-                var utenteFiltrato= data.filter(x => x.nome === this.props.nomeUtente);
-                var nuovoUtente= utenteFiltrato.map((element) => {
-                    return new Utente(element.id, element.nome, element.cognome, element.email, element.ordine, element.numprod, element.totordine);
-                })
-            
-                console.log(nuovoUtente)
-                this.setState({
-                    utente: nuovoUtente[0]
-                });
-            })
-
-    }
-    
-
+    /* {this.state.utente ? this.state.utente.nome : ''}*/
 
     render = () => {
         return (
@@ -43,9 +25,7 @@ class Carrello extends React.Component {
                             <div className='row'>
                                 <div className='col-lg-8'>
                                     <div className='main-heading'> 
-                                        <h2> Carrello: 
-                                            {this.state.utente ? this.state.utente.nome : ''}
-                                         </h2> 
+                                        <h2> Carrello di {this.props.login.nome} </h2> 
                                     </div>
                                     <div className='table-cart'>
                                         <table>
@@ -175,4 +155,8 @@ class Carrello extends React.Component {
     }
 };
 
-export default Carrello;
+const mapStateToProps = (state) => {
+    return {login: state.login};
+};
+
+export default connect(mapStateToProps)(Carrello);

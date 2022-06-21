@@ -13,6 +13,51 @@ class Carrello extends React.Component {
 
     /* {this.state.utente ? this.state.utente.nome : ''}*/
 
+    componentDidMount(){
+        this.caricaCarrello();
+    }
+
+    caricaCarrello(){
+        var aggiungiCarrello= this.props.login.carrello.map((element)=> { 
+            return <tr>
+                        <td>
+                            <div className='display-flex align-center'>
+                                <div className='img-product'>
+                                    <img src={element.immagine} alt="FotoProdotto"/>
+                                </div>
+                                <div className='name-product'>
+                                    {element.nome}
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div className='descrizioneprod'>
+                                {element.descrizione}
+                            </div>
+                        </td>
+                        <td>
+                            <div className='price'>
+                                {element.prezzo}
+                            </div> 
+                        </td>
+                        {/* manca ultima colona icona per eliminare il prodotto dal carrello */}
+                        <td>
+                            <a href="#" title="">
+                                <img src="images/icons/delete.png" alt="" className='mCS_img_loaded'/>
+                            </a>
+                        </td>
+                    </tr>
+        });
+        
+       /* var p= this.props.login.carrello[0].prezzo;
+        console.log('prezzo: ', p)*/
+        this.setState({
+            ordine: aggiungiCarrello
+            /*totale: this.state.totale+p*/
+        });
+    }
+
+
     render = () => {
         return (
             <div className='paginaCarrello'>
@@ -32,79 +77,15 @@ class Carrello extends React.Component {
                                             <thead>
                                                 <tr>
                                                     <th> Prodotto </th>
-                                                    <th> Quantità </th>
-                                                    <th> Totale </th>
+                                                    <th> Descrizione </th>
+                                                    <th> Prezzo </th>
                                                     <th></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td>
-                                                        <div className='display-flex align-center'>
-                                                            <div className='img-product'>
-                                                                <img src="https://www.91-img.com/pictures/laptops/asus/asus-x552cl-sx019d-core-i3-3rd-gen-4-gb-500-gb-dos-1-gb-61721-large-1.jpg" alt="FotoProdotto" className='mCS_img_loaded'/>
-                                                            </div>
-                                                            <div className='name-product'>
-                                                                Apple iPad Mini
-                                                                G2356
-                                                            </div>
-                                                            <div className='price'>
-                                                                $1,250.00
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td className='product-count'>
-                                                        <form action="#" className='count-inlineflex'>
-                                                            <div className='qtyminus'> - </div>
-                                                            <input type="text" name="quantity" value="1" className='qty'/>
-                                                            <div className='qtyplus'> + </div>
-                                                        </form>
-                                                    </td>
-                                                    <td>
-                                                        <div className='total'>
-                                                            $6,250.00
-                                                        </div>
-                                                    </td>
-                                                    {/* manca ultima colona icona per eliminare il prodotto dal carrello */}
-                                                    <td>
-                                                        <a href="#" title="">
-                                                            <img src="images/icons/delete.png" alt="" className='mCS_img_loaded'/>
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <div className='display-flex align-center'>
-                                                            <div className='img-product'>
-                                                                <img src="https://www.91-img.com/pictures/laptops/asus/asus-x552cl-sx019d-core-i3-3rd-gen-4-gb-500-gb-dos-1-gb-61721-large-1.jpg" alt="" className='mCS_img_loaded'/>
-                                                            </div>
-                                                            <div className='name-product'>
-                                                                Apple iPad Mini
-                                                                G2356
-                                                            </div>
-                                                            <div className='price'>
-                                                                $1,250.00
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td className='product-count'>
-                                                        <form action="#" className='count-inlineflex'>
-                                                            <div className='qtyminus'> - </div>
-                                                            <input type="text" name="quantity" value="1" className='qty'/>
-                                                            <div className='qtyplus'> + </div>
-                                                        </form>
-                                                    </td>
-                                                    <td>
-                                                        <div className='total'>
-                                                            $6,250.00
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <a href="#" title="">
-                                                            <img src="images/icons/delete.png" alt="" className='mCS_img_loaded'/>
-                                                        </a>
-                                                    </td>
-                                                </tr>
+
+                                                {this.state.ordine}
+
                                             </tbody>
                                         </table>
                                     </div>
@@ -119,7 +100,7 @@ class Carrello extends React.Component {
                                                 <tbody>
                                                     <tr>
                                                         <td> Subtotale </td>
-                                                        <td className='subtotal'>$2,589.00</td>
+                                                        <td className='subtotal'> {this.state.totale} </td>
                                                     </tr>
                                                     <tr>
                                                         <td> Spedizione </td>
@@ -127,7 +108,7 @@ class Carrello extends React.Component {
                                                     </tr>
                                                     <tr className='total-row'>
                                                         <td> Totale </td>
-                                                        <td className='price-total'>$1,591.00</td>
+                                                        <td className='price-total'> {this.state.totale} </td>
                                                     </tr>
                                                 </tbody>
                                             </table>

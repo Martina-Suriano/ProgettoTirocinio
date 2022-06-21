@@ -7,7 +7,8 @@ class Negozio extends React.Component {
     constructor(props){
         super(props)
         this.state={
-            prodotti:[]
+            prodotti:[],
+            contatore:0
         }
     }
 
@@ -53,10 +54,15 @@ class Negozio extends React.Component {
         }
     }
 
-    onClickButton= (element) => {
-        
-        
+    onClickButton= async (element) => {
         console.log(element);
+        this.props.login.carrello.push(element);
+        console.log(this.props.login);
+       
+        this.setState({
+            contatore: this.state.contatore+1
+        })
+        
     }
 
     render = () => {
@@ -93,9 +99,9 @@ class Negozio extends React.Component {
                                         </button>
                                     </div>
 
-                                    {/*<div className='contCarrello'>
-                                        <h4> Prodotti nel carrello: </h4>
-                                    </div>*/}
+                                    <div className='contCarrello'>
+                                        <h4> Prodotti nel carrello: {this.state.contatore} </h4>
+                                    </div>
                                 
                             </div>
                             )

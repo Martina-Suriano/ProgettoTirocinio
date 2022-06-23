@@ -7,17 +7,25 @@ class Carrello extends React.Component {
         super(props)
         this.state={
             ordine:[],
-            totale:0
+            totale:0,
+            go: false
         }
     }
 
-    /* {this.state.utente ? this.state.utente.nome : ''}*/
 
     componentDidMount(){
         this.caricaCarrello();
     }
 
+    componentDidUpdate(){
+        if(this.props.login.carrello!== this.props.login.carrello){
+           this.caricaCarrello();
+        }
+    }
+
+
     caricaCarrello(){
+        console.log('Prima', this.props.login);
         var aggiungiCarrello= this.props.login.carrello.map((element)=> { 
             return <tr>
                         <td>
@@ -37,26 +45,43 @@ class Carrello extends React.Component {
                         </td>
                         <td>
                             <div className='price'>
-                                {element.prezzo}
+                                {element.prezzo}€
                             </div> 
                         </td>
-                        {/* manca ultima colona icona per eliminare il prodotto dal carrello */}
                         <td>
-                            <a href="#" title="">
-                                <img src="images/icons/delete.png" alt="" className='mCS_img_loaded'/>
-                            </a>
+                            <button className='btn btn-danger' onClick={()=> this.onClickDelete(element)}>
+                                <i className='fa-solid fa-trash-can'></i>
+                            </button>
                         </td>
                     </tr>
         });
         
-       /* var p= this.props.login.carrello[0].prezzo;
-        console.log('prezzo: ', p)*/
+        var totcarrello=0;
+        for (const element in this.props.login.carrello) {
+            totcarrello+= this.props.login.carrello[element].prezzo;
+        }
+
         this.setState({
-            ordine: aggiungiCarrello
-            /*totale: this.state.totale+p*/
+            ordine: aggiungiCarrello,
+            totale: totcarrello
         });
     }
 
+    onClickDelete = (element) => {
+        for(var i=0; i<this.props.login.carrello.length; i++){
+            if(this.props.login.carrello[i]===element){
+                this.props.login.carrello.splice(i,1);
+            }
+        }
+
+        console.log('Dopo', this.props.login);
+    }
+
+    onClickOrdina = () => {
+       this.setState({
+            go:true
+       });
+    }
 
     render = () => {
         return (
@@ -79,6 +104,7 @@ class Carrello extends React.Component {
                                                     <th> Prodotto </th>
                                                     <th> Descrizione </th>
                                                     <th> Prezzo </th>
+                                                    <th> Rimuovi </th>
                                                     <th></th>
                                                 </tr>
                                             </thead>
@@ -100,7 +126,7 @@ class Carrello extends React.Component {
                                                 <tbody>
                                                     <tr>
                                                         <td> Subtotale </td>
-                                                        <td className='subtotal'> {this.state.totale} </td>
+                                                        <td className='subtotal'> {this.state.totale}€ </td>
                                                     </tr>
                                                     <tr>
                                                         <td> Spedizione </td>
@@ -108,12 +134,20 @@ class Carrello extends React.Component {
                                                     </tr>
                                                     <tr className='total-row'>
                                                         <td> Totale </td>
-                                                        <td className='price-total'> {this.state.totale} </td>
+                                                        <td className='price-total'> {this.state.totale}€ </td>
                                                     </tr>
                                                 </tbody>
                                             </table>
                                             <div className='btn-cart-totals'>
-                                                <a href="#" className="checkout round-black-btn" title=""> Ordina </a>
+                                                <a href="#" className="checkout round-black-btn" title="" onClick={()=> this.onClickOrdina()}>
+                                                    Ordina 
+                                                </a>
+                                                
+                                                {this.state.go && (
+                                                    <div>
+                                                        <h5> Ordine effettuato con successo! </h5>
+                                                    </div>
+                                                )}
                                             </div>
                                             {/* /.btn-cart-totals */}
                                         </form>

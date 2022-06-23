@@ -8,7 +8,7 @@ class Negozio extends React.Component {
         super(props)
         this.state={
             prodotti:[],
-            contatore:0
+            contatore:this.props.login.carrello.length
         }
     }
 
@@ -55,13 +55,12 @@ class Negozio extends React.Component {
     }
 
     onClickButton= async (element) => {
-        console.log(element);
         this.props.login.carrello.push(element);
-        console.log(this.props.login);
-       
+        
         this.setState({
-            contatore: this.state.contatore+1
+            contatore: this.props.login.carrello.length
         })
+
         
     }
 

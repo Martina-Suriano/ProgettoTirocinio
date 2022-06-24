@@ -16,16 +16,9 @@ class Carrello extends React.Component {
     componentDidMount(){
         this.caricaCarrello();
     }
-
-    componentDidUpdate(){
-        if(this.props.login.carrello!== this.props.login.carrello){
-           this.caricaCarrello();
-        }
-    }
-
+    
 
     caricaCarrello(){
-        console.log('Prima', this.props.login);
         var aggiungiCarrello= this.props.login.carrello.map((element)=> { 
             return <tr>
                         <td>
@@ -74,7 +67,7 @@ class Carrello extends React.Component {
             }
         }
 
-        console.log('Dopo', this.props.login);
+        this.caricaCarrello();
     }
 
     onClickOrdina = () => {

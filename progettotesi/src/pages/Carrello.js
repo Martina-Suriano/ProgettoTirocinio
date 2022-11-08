@@ -132,7 +132,7 @@ class Carrello extends React.Component {
                                                 </tbody>
                                             </table>
                                             <div className='btn-cart-totals'>
-                                                <a href="#" className="checkout round-black-btn" title="" onClick={()=> this.onClickOrdina()}>
+                                                <a href="##" className="checkout round-black-btn" title="" onClick={()=> this.onClickOrdina()}>
                                                     Ordina 
                                                 </a>
                                                 

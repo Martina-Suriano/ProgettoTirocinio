@@ -16,7 +16,7 @@ function App(){
           <Route path="caramelle" element={<Negozio tipoProdotto="Caramella"/>} />
           <Route path="cioccolata" element={<Negozio tipoProdotto="Cioccolata"/>} />
           <Route path="eventi" element={<Negozio tipoProdotto="Eventi"/>} />
-          <Route path="carrello" element={<Carrello nomeUtente="Martina"/>} />
+          <Route path="carrello" element={<Carrello/>} />
         </Route>
       </Routes>
     </BrowserRouter>

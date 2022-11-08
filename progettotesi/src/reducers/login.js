@@ -3,7 +3,7 @@
 const loginReducer = (state=false, action) =>{
     switch(action.type){
         case 'LOGIN':
-            console.log(action.payload);
+            // console.log(action.payload);
             return action.payload;
             
             

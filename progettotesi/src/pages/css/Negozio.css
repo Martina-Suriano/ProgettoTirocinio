@@ -38,5 +38,19 @@ h2{
     font-weight: bold;
 }
 
+p {
+    font-style: italic;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: black;
+    font-size: 20px;
+}
 
+h5 {
+    font-style: italic;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: black;
+    font-weight: bold;
+    margin-top: 20px;
+    font-size: 20px;
+}
 

@@ -25,13 +25,14 @@ class Home extends React.Component{
                         <div className='col-sm-12'>
                             <div className='presentazione'>
                                 <h1> Benvenuto in Candy e-shop </h1>
-                                <h4> Nel nostro shop online potrai trovare una vasta varietà di caramelle e cioccolata, </h4>
-                                <h4> potrai inoltre organizzare le tue feste con tutto il necessario, </h4>
-                                <h3> ci pensiamo noi! </h3>
+                                <h3> Soddisfiamo i golosi e portiamo sorrisi! </h3>
+                                <h4> Nel nostro shop online troverai caramelle, dolciumi e tutto il necessario per le tue feste, </h4>
+                                <h4> fai una dolce pausa... al resto ci pensiamo noi! </h4>
+                                
                                 <div className='accedi'>
                                     <button className='btn btn-success' type='button' onClick={this.onClickLogin}> LOGIN </button>
                                     <div className='logineffettuato'>
-                                        
+
                                         {this.props.login.nome && (
                                             <h5> {this.props.login.nome} ha effettuato l'accesso! </h5>
                                         )}

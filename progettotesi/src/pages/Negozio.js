@@ -89,8 +89,10 @@ class Negozio extends React.Component {
 
                                     <h2 className='product-title'> Nome Prodotto: {this.state.prodottoCorrente.nome} </h2>
                                     
-                                    <p className='product-description'> Descrizione: {this.state.prodottoCorrente.descrizione} </p>
-                                    <h5 className='price'> Prezzo: {this.state.prodottoCorrente.prezzo} € </h5>
+                                    <p className='product-description'> 
+                                        Descrizione: {this.state.prodottoCorrente.descrizione} <br/>
+                                        Prezzo: {this.state.prodottoCorrente.prezzo}€
+                                    </p>
                                     
                                     <div className='acquista'>
                                         <button type="button" className='btn btn-success' onClick={()=> this.onClickButton(this.state.prodottoCorrente)}>
@@ -98,13 +100,15 @@ class Negozio extends React.Component {
                                         </button>
                                     </div>
 
-                                    <div className='contCarrello'>
-                                        <h4> Prodotti nel carrello: {this.state.contatore} </h4>
-                                    </div>
+                                    <p>
+                                        <div className='contCarrello'>
+                                            <h5> Prodotti nel carrello: {this.state.contatore} </h5>
+                                        </div>
+                                    </p>
                                 
                             </div>
-                            )
-                        }
+                        )}
+                        
                     </div>
                 </div>
             </div>

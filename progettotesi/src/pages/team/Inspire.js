@@ -55,15 +55,6 @@ const Inspire = () => {
                     </div>
                 </div>
 
-                {/*FRECCE (ma non funzionano)*/}
-                <a className='carousel-control-prev' href='#foto' data-slide='prev'>
-                    <span className='carousel-control-prev-icon'> </span>
-                </a>
-                <a className='carousel-control-next' href='#foto' data-slide='next'>
-                    <span className='carousel-control-next-icon'> </span>
-                </a>
-
-
             </div>
 
 

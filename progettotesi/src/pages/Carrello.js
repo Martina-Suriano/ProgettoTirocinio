@@ -108,9 +108,8 @@ class Carrello extends React.Component {
                                             </tbody>
                                         </table>
                                     </div>
-                                    {/* /.table-cart */}
                                 </div>
-                                {/* /.col-lg-8 */}
+
                                 <div className='col-lg-4'>
                                     <div className='cart-totals'>
                                         <h3> Totale ordine </h3>
@@ -142,13 +141,10 @@ class Carrello extends React.Component {
                                                     </div>
                                                 )}
                                             </div>
-                                            {/* /.btn-cart-totals */}
                                         </form>
-                                        {/* /form */}
+
                                     </div>
-                                    {/* /.cart-totals */}
                                 </div>
-                                {/* /.col-lg-4 */}
                             </div>
                         </div>
                     </div>
